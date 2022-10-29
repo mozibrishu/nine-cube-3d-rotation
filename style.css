@@ -16,7 +16,7 @@ body{
   flex-wrap: wrap;
   /* background-color: red; */
   transform-style: preserve-3d;
-  perspective: 100000px;
+  perspective: 300px;
 }
 
 .cube {
