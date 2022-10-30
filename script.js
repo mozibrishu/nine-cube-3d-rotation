@@ -37,11 +37,11 @@ function oneTothree(){
 tl.timeScale( 1); 
 }
 
-// oneTothree();
+oneTothree();
 
-// setTimeout(() => {
-//   tl.reverse();
-// }, 8000);
+setTimeout(() => {
+  tl.reverse();
+}, 8000);
 
 Draggable.create('.container', {
   type: "x", edgeResistance: .95, bounds: {
