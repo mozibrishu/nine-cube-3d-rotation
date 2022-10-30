@@ -37,10 +37,31 @@ function oneTothree(){
 tl.timeScale( 1); 
 }
 
-oneTothree();
+// oneTothree();
 
-setTimeout(() => {
-  tl.reverse();
-}, 8000);
+// setTimeout(() => {
+//   tl.reverse();
+// }, 8000);
 
-
+Draggable.create('.container', {
+  type: "x", edgeResistance: .95, bounds: {
+      top: 0, left: 80, width: 200, height: 100,
+  }, onDragEnd: function () {
+      // if (hitStatus) {
+      //     gsap.to(".element_4", { display: "block", opacity: 1, duration: .5 });
+      //     gsap.to(".element_6", { duration:.8, x: 0, y: 0});
+      // }
+      console.log('drag end');
+  }, onDrag: function () {
+      // if (this.hitTest(".element_5", 55) && hitStatus) {
+      //     hitStatus = false;
+      //     console.log('hitted');
+      //     hitHair();
+      // }
+      console.log('dragging');
+  },
+  onDragStart: function () {
+      // gsap.to(".element_4", { display: "none", opacity: 0, duration: .5 });
+      console.log("working");
+  }
+})
