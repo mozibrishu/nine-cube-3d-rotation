@@ -1,5 +1,5 @@
 function oneTothree(){
-  tl = gsap.timeline({defaults:{ease:'none'}})
+  tl = gsap.timeline({defaults:{ease:'none'},repeat:-1,yoyo:true})
 .to(['.cube-1','.cube-7'],{x:0,rotateY:180,duration:2,scale:.8},1)
 .to(['.cube-1','.cube-7'],{x:100,rotateY:270,duration:1,scale:.8},'>')
 .to(['.cube-1','.cube-7'],{x:200,rotateY:360,duration:1.5,scale:.8},'>')
@@ -41,7 +41,47 @@ oneTothree();
 
 setTimeout(() => {
   tl.reverse();
-}, 8000);
+}, 10000);
+
+Draggable.create('.replicaContainer', {
+  type: "x", edgeResistance: .95, bounds: {
+      top: 0, left:-300, width: 900, height: 250,
+  }, onDragEnd: function () {
+      // if (hitStatus) {
+      //     gsap.to(".element_4", { display: "block", opacity: 1, duration: .5 });
+      //     gsap.to(".element_6", { duration:.8, x: 0, y: 0});
+      // }
+      if(this.x<0){
+        tl.reverse();
+      }else{
+        tl.play();
+      }
+      gsap.set('.replicaContainer',{x:0,y:0})
+      console.log('drag end');
+      
+      // if(tl.reversed()){
+      //   // tl.seek(-1);
+      //   tl.reverse();
+      // }else{
+      //   // tl.seek(1);
+      //   tl.play();
+      // }
+
+  }, onDrag: function () {
+      
+      console.log(tl.progress());
+
+  },
+  onDragStart: function () {
+      // gsap.to(".element_4", { display: "none", opacity: 0, duration: .5 });
+      console.log("working");
+      tl.pause();
+  }
+})
+
+
+
+
 
 // Draggable.create('.container', {
 //   type: "x", edgeResistance: .95, bounds: {

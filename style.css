@@ -19,6 +19,15 @@ body{
   perspective: 300px;
 }
 
+.replicaContainer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 250px;
+  width: 300px;
+  background-color: #cc11aa00;
+}
+
 .cube {
   width: 100px;
   height: 33.4%;
